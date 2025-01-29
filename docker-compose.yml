@@ -4,7 +4,7 @@ services:
         container_name: "${PROJECT_NAME}-nginx"
         volumes:
             - "./:/var/www/html"
-            - ".docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
+            - "./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
         ports:
             - "80:80"
         depends_on:

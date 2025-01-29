@@ -1,0 +1,42 @@
+Options -Indexes
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Перенаправление на HTTPS
+  # RewriteEngine On
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Некоторые хосты могут требовать использование директивы `RewriteBase`.
+  # Определите RewriteBase автоматически и установите его как переменную окружения.
+  # Если вы используете алиасы Apache для массового виртуального хостинга или установили
+  # проект в подкаталог, базовый путь будет добавлен в начало для правильного
+  # разрешения файла index.php и перенаправления на правильный URI. Это будет
+  # работать в средах без префикса пути, обеспечивая безопасное, универсальное
+  # решение. Но так как в данном случае это не требуется, вы можете закомментировать
+  # следующие 2 строки, чтобы устранить накладные расходы.
+  RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+  RewriteRule ^(.*) - [E=BASE:%1]
+  
+  # Если вышеуказанное не работает, возможно, вам нужно вручную установить директиву `RewriteBase`, это должен быть
+  # абсолютный физический путь к каталогу, содержащему этот файл htaccess.
+  # RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Ограничение доступа по IP
+# <Limit GET POST>
+#   order deny,allow
+#   deny from all
+#   allow from 45.135.165.227
+#   allow from 185.97.201.150
+# </Limit>

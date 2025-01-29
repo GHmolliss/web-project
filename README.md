@@ -60,6 +60,34 @@
 │── README.md            # Документация проекта
 ```
 
+## Domain-Driven Design (DDD)
+/app
+│── /Domain             # Чистая бизнес-логика (Сущности, Агрегаты, Репозитории, Сервисы)
+│   ├── /Entities       # Основные бизнес-сущности (User.php, Order.php)
+│   ├── /ValueObjects   # Объекты-значения (Email.php, Money.php)
+│   ├── /Repositories   # Интерфейсы репозиториев (UserRepositoryInterface.php)
+│   ├── /Services       # Бизнес-правила (UserRegistrationService.php)
+│   ├── /Events         # Доменные события (UserRegistered.php)
+│── /Application        # Сценарии использования (Use Cases, DTO, Команды)
+│   ├── /DTO            # Data Transfer Objects (UserDTO.php)
+│   ├── /UseCases       # Приложенческая логика (RegisterUser.php)
+│   ├── /Commands       # Командный слой (CreateOrderCommand.php)
+│   ├── /Queries        # Чтение данных (GetUserOrdersQuery.php)
+│── /Infrastructure     # Взаимодействие с внешними сервисами (БД, API)
+│   ├── /Persistence    # Реализация репозиториев (EloquentUserRepository.php)
+│   ├── /ORM            # Модели Eloquent (если используются)
+│   ├── /Cache          # Кеширование (RedisCache.php)
+│   ├── /Email          # Почтовые сервисы (MailgunMailer.php)
+│   ├── /Queue          # Очереди задач (RabbitMQJob.php)
+│── /Interfaces         # Взаимодействие с пользователем (HTTP, CLI, API)
+│   ├── /Controllers    # Slim-контроллеры (UserController.php)
+│   ├── /Middleware     # Slim Middleware (AuthMiddleware.php)
+│   ├── /CLI            # Консольные команды (ImportUsersCommand.php)
+│   ├── /API            # API-контроллеры (UserApiController.php)
+│── bootstrap.php       # Инициализация приложения
+│── dependencies.php    # Подключение сервисов и контейнеров
+
+
 ## Объяснение структуры
  - `/app` → Backend-логика (контроллеры, сервисы, модели)
  - `/public` → Папка, доступная извне (веб-сервер открывает только ее!)

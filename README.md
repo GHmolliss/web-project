@@ -1,11 +1,19 @@
 # Web project
 
 ## Запуск
+Собрать проект
 ```bash
 cd ~/project
 docker compose up -d
+```
+
+```bash
+cd ~/project
 docker compose exec php bash
 ```
+
+`Открыть в браузере` - http://localhost/  
+`phpMyAdmin` - http://localhost:8080/index.php  
 
 ## Структура
 ```

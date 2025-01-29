@@ -1,5 +1,12 @@
 # Web project
 
+## Запуск
+```bash
+cd ~/project
+docker compose up -d
+docker compose exec php bash
+```
+
 ## Структура
 ```
 /project-root

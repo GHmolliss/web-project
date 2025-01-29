@@ -1,0 +1,16 @@
+{
+    "name": "code-base/web-project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "code-base"
+        }
+    ],
+    "require": {}
+}

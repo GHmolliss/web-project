@@ -53,6 +53,7 @@
 │── /vendor              # Установленные Composer-зависимости
 │── .env                 # Файл окружения (конфиденциальные настройки)
 │── .gitignore           # Игнорируемые файлы в Git
+│── docker-compose.yml   # Конфигурация Docker Compose
 │── composer.json        # Composer-конфигурация
 │── package.json         # npm-конфигурация
 │── webpack.config.js    # Конфигурация Webpack/Vite

@@ -7,9 +7,26 @@ cd ~/project
 docker compose up -d
 ```
 
+PHP
 ```bash
-cd ~/project
 docker compose exec php bash
+
+php -version
+
+exit
+```
+
+MySQL
+```bash
+docker compose exec database bash
+
+mysql -u root -p
+Enter password: root
+
+SHOW DATABASES;
+
+exit
+exit
 ```
 
 `Открыть в браузере` - http://localhost/  
